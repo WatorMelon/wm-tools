@@ -13,273 +13,159 @@
 
   body {
     min-height: 100vh;
-    font-family: "Courier New", "Consolas", monospace;
-    color: #eaeaea;
-    background: #11131a;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    background-color: #0f1117;
+    color: #e6edf3;
+    padding: 80px 24px;
     position: relative;
     overflow-x: hidden;
-    padding: 60px 20px 80px;
   }
 
-  /* 极简几何背景装饰 */
-  body::before,
-  body::after {
-    content: "";
+  /* 背景几何装饰，极少量，弱透明度，不抢视觉 */
+  .geo {
     position: fixed;
-    z-index: 0;
     pointer-events: none;
-  }
-
-  /* 左侧几何组 */
-  body::before {
-    top: 8%;
-    left: 4%;
-    width: 180px;
-    height: 180px;
-    border: 2px solid rgba(64, 200, 255, 0.35);
-    border-radius: 50%;
-  }
-
-  body::after {
-    bottom: 10%;
-    right: 5%;
-    width: 110px;
-    height: 110px;
-    background: rgba(255, 120, 180, 0.08);
-    border: 2px solid rgba(255, 120, 180, 0.4);
-  }
-
-  .geo-dot,
-  .geo-square,
-  .geo-line,
-  .geo-triangle,
-  .geo-ring {
-    position: fixed;
     z-index: 0;
-    pointer-events: none;
+    opacity: 0.08;
   }
-
-  /* 四角短线 */
-  .geo-line {
-    width: 60px;
-    height: 2px;
-    background: rgba(255, 230, 120, 0.5);
-    top: 12%;
-    right: 8%;
-    transform: rotate(-25deg);
-  }
-
-  .geo-line.two {
-    width: 40px;
-    height: 2px;
-    background: rgba(120, 255, 180, 0.45);
-    bottom: 18%;
-    left: 6%;
-    transform: rotate(35deg);
-  }
-
-  /* 小圆点 */
-  .geo-dot {
-    width: 10px;
-    height: 10px;
-    background: #4ad0ff;
+  .circle-1 {
+    width: 320px;
+    height: 320px;
+    border: 1px solid #58a6ff;
     border-radius: 50%;
-    top: 30%;
-    left: 9%;
-    box-shadow: 0 0 18px rgba(74, 208, 255, 0.6);
+    top: -120px;
+    right: -100px;
+  }
+  .square-1 {
+    width: 160px;
+    height: 160px;
+    border: 1px solid #f778ba;
+    bottom: -60px;
+    left: -70px;
+    transform: rotate(25deg);
+  }
+  .line-1 {
+    width: 220px;
+    height: 1px;
+    background: #3fb950;
+    top: 24%;
+    left: 10%;
   }
 
-  .geo-dot.pink {
-    background: #ff7ab0;
-    top: 70%;
-    right: 11%;
-    box-shadow: 0 0 18px rgba(255, 122, 176, 0.5);
-  }
-
-  .geo-dot.yellow {
-    background: #ffdf5c;
-    bottom: 30%;
-    left: 14%;
-    box-shadow: 0 0 18px rgba(255, 223, 92, 0.45);
-  }
-
-  /* 小方块 */
-  .geo-square {
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(120, 255, 180, 0.5);
-    top: 50%;
-    right: 7%;
-    transform: rotate(45deg);
-  }
-
-  .geo-square.pink {
-    width: 14px;
-    height: 14px;
-    border-color: rgba(255, 122, 176, 0.5);
-    bottom: 45%;
-    left: 8%;
-  }
-
-  /* 三角形 */
-  .geo-triangle {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 18px solid rgba(255, 223, 92, 0.5);
-    top: 18%;
-    right: 18%;
-  }
-
-  /* 小圆环 */
-  .geo-ring {
-    width: 26px;
-    height: 26px;
-    border: 2px solid rgba(74, 208, 255, 0.4);
-    border-radius: 50%;
-    bottom: 22%;
-    right: 20%;
-  }
-
-  /* 标题 */
-  h1 {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    font-size: 44px;
-    letter-spacing: 8px;
-    color: #f5f5f5;
-    margin-bottom: 60px;
-  }
-
-  h1 span {
-    color: #4ad0ff;
-  }
-
-  /* 双模块容器 */
-  .wrapper {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
+  .container {
+    max-width: 820px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-
-  .card {
     position: relative;
-    background: #181b24;
-    border: 1px solid #2a2f3d;
-    border-radius: 14px;
-    padding: 36px 28px;
+    z-index: 2;
+  }
+
+  header {
+    margin-bottom: 64px;
+  }
+
+  h1 {
+    font-size: 42px;
+    letter-spacing: 2px;
+    color: #f0f6fc;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    color: #8b949e;
+    font-size: 16px;
+  }
+
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .tool-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 28px;
     text-decoration: none;
-    color: #eaeaea;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    overflow: hidden;
+    color: inherit;
+    transition: 0.2s ease;
   }
 
-  .card:hover {
-    transform: translateY(-4px);
-    border-color: #4ad0ff;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  .tool-card:hover {
+    border-color: #58a6ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
 
-  .card.music:hover {
-    border-color: #ff7ab0;
+  .tool-card.music:hover {
+    border-color: #f778ba;
   }
 
-  .card .icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-bottom: 18px;
-    background: rgba(255, 122, 176, 0.12);
-    border: 1px solid rgba(255, 122, 176, 0.35);
-  }
-
-  .card.speed .icon {
-    background: rgba(74, 208, 255, 0.12);
-    border-color: rgba(74, 208, 255, 0.35);
-  }
-
-  .card h2 {
+  .tool-card h2 {
     font-size: 22px;
     margin-bottom: 10px;
   }
-
-  .card p {
+  .tool-card p {
+    color: #8b949e;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .tool-card .link-text {
     font-size: 14px;
-    line-height: 1.7;
-    color: #9aa0b4;
+    color: #58a6ff;
+  }
+  .tool-card.music .link-text {
+    color: #f778ba;
   }
 
-  .card .arrow {
-    position: absolute;
-    right: 24px;
-    bottom: 24px;
-    font-size: 20px;
-    color: #5c6273;
-    transition: color 0.2s, transform 0.2s;
+  footer {
+    margin-top: 70px;
+    text-align: center;
+    color: #6e7681;
+    font-size:13px;
   }
 
-  .card:hover .arrow {
-    color: #4ad0ff;
-    transform: translateX(4px);
-  }
-
-  .card.music:hover .arrow {
-    color: #ff7ab0;
-  }
-
-  /* 响应式 */
-  @media (max-width: 720px) {
-    .wrapper {
+  @media (max-width: 640px) {
+    .tool-grid {
       grid-template-columns: 1fr;
     }
-
     h1 {
-      font-size: 32px;
-      letter-spacing: 6px;
+      font-size:32px;
     }
   }
 </style>
 </head>
 <body>
+  <!-- 背景几何装饰 -->
+  <div class="geo circle-1"></div>
+  <div class="geo square-1"></div>
+  <div class="geo line-1"></div>
 
-  <!-- 极简几何装饰 -->
-  <div class="geo-line"></div>
-  <div class="geo-line two"></div>
-  <div class="geo-dot"></div>
-  <div class="geo-dot pink"></div>
-  <div class="geo-dot yellow"></div>
-  <div class="geo-square"></div>
-  <div class="geo-square pink"></div>
-  <div class="geo-triangle"></div>
-  <div class="geo-ring"></div>
+  <div class="container">
+    <header>
+      <h1>WM‑TOOL</h1>
+      <p class="subtitle">Personal dev tool collection | 个人开发工具合集</p>
+    </header>
 
-  <h1>WM<span>-</span>TOOL</h1>
+    <div class="tool-grid">
+      <!-- Music Tool -->
+      <a class="tool-card music" href="https://watormelon.github.io/midi_learning/" target="_blank">
+        <h2>Music Tool</h2>
+        <p>MIDI乐理学习键盘，虚拟钢琴、和弦查询，用于电子音乐与Launchpad练习。</p>
+        <div class="link-text">Open →</div>
+      </a>
 
-  <div class="wrapper">
-    <a class="card music" href="https://watormelon.github.io/midi_learning/" target="_blank">
-      <div class="icon">🎵</div>
-      <h2>Music Tool</h2>
-      <p>MIDI 乐理学习键盘，支持虚拟钢琴与和弦查询。</p>
-      <div class="arrow">→</div>
-    </a>
+      <!-- Ride Speed -->
+      <a class="tool-card" href="https://watormelon.github.io/speed" target="_blank">
+        <h2>Ride Speed</h2>
+        <p>骑行码表工具，GPS实时测速、最高速度记录、深色主题切换。</p>
+        <div class="link-text">Open →</div>
+      </a>
+    </div>
 
-    <a class="card speed" href="https://watormelon.github.io/speed" target="_blank">
-      <div class="icon">⚡</div>
-      <h2>Ride Speed</h2>
-      <p>骑行码表工具，支持实时速度、最高速与主题切换。</p>
-      <div class="arrow">→</div>
-    </a>
+    <footer>
+      WM Personal Tools • Built with HTML & JS
+    </footer>
   </div>
-
 </body>
 </html>
